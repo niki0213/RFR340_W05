@@ -4,7 +4,7 @@ using System;
 
 namespace Backend
 {
-    internal class SignalRHub: Hub
+    public class SignalRHub: Hub
     {
         public override Task OnConnectedAsync()
         {
