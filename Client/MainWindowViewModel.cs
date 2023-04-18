@@ -14,7 +14,7 @@ using Model;
 
 namespace Client
 {
-    internal class MainWindowViewModel : ObservableRecipient
+    public class MainWindowViewModel : ObservableRecipient
     {
 
         private string message;
@@ -34,28 +34,9 @@ namespace Client
         }
 
 
-        public RestCollection<Message> messages { get; set; }
+        public RestCollection<Message> Messages { get; set; }
 
-        private Message selectedMessage;
-
-        public Message SelectedMessage
-        {
-            get { return selectedMessage; }
-            set
-            {
-                if (value != null)
-                {
-                    selectedMessage = new Message()
-                    {
-                        UserID = value.UserID,
-                        Text = value.Text,
-                        date = value.date
-                    };
-                    OnPropertyChanged();
-
-                }
-            }
-        }
+      
 
 
         public ICommand SendMessage { get; set; }
@@ -75,15 +56,15 @@ namespace Client
         {
             if (!IsInDesignMode)
             {
-                messages = new RestCollection<Message>("http://localhost:26624", "message", "hub");
+                Messages = new RestCollection<Message>("http://localhost:26624", "message", "hub");
                 SendMessage = new RelayCommand(() =>
                 {
-                    messages.Add(new Message()
+                    Messages.Add(new Message()
                     {
-                        UserID = SelectedMessage.UserID,
-                        Text = SelectedMessage.Text,
-                        date = SelectedMessage.date
-                    });
+                        UserID = User,
+                        Text = Message,
+                        date = DateTime.Now
+                    }) ;
                 });
 
 

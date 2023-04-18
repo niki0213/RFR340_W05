@@ -6,13 +6,35 @@
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-   
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        
-        
+        <ListBox ItemsSource="{Binding Messages}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Label Content="{Binding UserID}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{Binding Text}" FontWeight="Bold"/>
+                            <Label Content="{Binding date}" HorizontalAlignment="Right"/>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="1">
+            <Label Content="Message:" Margin="10"/>
+            <TextBox Text="{Binding Message}" Margin="10" Padding="5"/>
+            <StackPanel>
+                <Label Content="Name:" Margin="10"/>
+                <TextBox Text="{Binding Sender}" Margin="10" Padding="5"/>
+            </StackPanel>
+            <Button Content="Send Message" Command="{Binding SendChatCommand}" Margin="10" Padding="10"/>
+        </StackPanel>
     </Grid>
 </Window>

@@ -8,7 +8,7 @@ namespace Model
 {
     public class Message
     {
-        public int UserID { get; set; }
+        public string UserID { get; set; }
 
         public string Text { get; set; }
 
