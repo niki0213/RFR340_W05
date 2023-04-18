@@ -16,7 +16,7 @@ namespace Client
 {
     public class MainWindowViewModel : ObservableRecipient
     {
-
+         public RestCollection<Message> Messages2 { get; set; }
         private string message;
 
         public string Message
@@ -34,12 +34,12 @@ namespace Client
         }
 
 
-        public RestCollection<Message> Messages { get; set; }
-
-      
 
 
-        public ICommand SendMessage { get; set; }
+
+
+
+        public ICommand SendMessageCommand { get; set; }
 
 
         public static bool IsInDesignMode
@@ -54,22 +54,20 @@ namespace Client
 
         public MainWindowViewModel()
         {
+
+
             if (!IsInDesignMode)
             {
-                Messages = new RestCollection<Message>("http://localhost:26624", "message", "hub");
-                SendMessage = new RelayCommand(() =>
+                Messages2 = new RestCollection<Message>("https://localhost:44339/", "message", "hub");
+                SendMessageCommand = new RelayCommand(() =>
                 {
-                    Messages.Add(new Message()
+                    Messages2.Add(new Message()
                     {
                         UserID = User,
                         Text = Message,
                         date = DateTime.Now
-                    }) ;
+                    });
                 });
-
-
-
-
 
             }
         }

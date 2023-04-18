@@ -25,7 +25,7 @@ namespace Endpoint.Controllers
         public void Create([FromBody] Message value)
         {
             this.logic.Add(value);
-            this.hub.Clients.All.SendAsync("MessageSendt", value);
+            this.hub.Clients.All.SendAsync("MessageCreated", value);
         }
 
         [HttpGet]
