@@ -16,7 +16,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 
-namespace Backend
+namespace Endpoint
 {
     public class Startup
     {

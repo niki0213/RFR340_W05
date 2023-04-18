@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using System;
 
-namespace Backend
+namespace Endpoint
 {
     public class SignalRHub: Hub
     {

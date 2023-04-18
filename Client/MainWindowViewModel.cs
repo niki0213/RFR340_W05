@@ -10,7 +10,7 @@ using System.Windows.Input;
 using System.Windows;
 using Model;
 
-namespace Frontend
+namespace Client
 {
     public class MainWindowViewModel : ObservableRecipient
     {
