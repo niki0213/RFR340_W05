@@ -1,4 +1,3 @@
-
 using Logic;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
@@ -15,7 +14,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-
 namespace Endpoint
 {
     public class Startup
@@ -29,9 +27,9 @@ namespace Endpoint
         public IConfiguration Configuration { get; }
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IRepository<Message>,MessageRepository>();
+            services.AddTransient<IRepository<Message>, MessageRepository>();
             services.AddTransient<IMessageLogic, MessageLogic>();
-            
+
             services.AddSignalR();
 
             services.AddControllers();
@@ -69,8 +67,5 @@ namespace Endpoint
                 endpoints.MapHub<SignalRHub>("/hub");
             });
         }
-
-
-
     }
 }

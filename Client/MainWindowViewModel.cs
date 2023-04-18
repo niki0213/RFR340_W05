@@ -1,4 +1,5 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.DependencyInjection;
 using Microsoft.Toolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
@@ -6,13 +7,14 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows;
 using Model;
 
 namespace Client
 {
-    public class MainWindowViewModel : ObservableRecipient
+    internal class MainWindowViewModel : ObservableRecipient
     {
 
         private string message;
@@ -73,7 +75,7 @@ namespace Client
         {
             if (!IsInDesignMode)
             {
-                messages = new RestCollection<Message>("http://localhost:38934", "message", "hub");
+                messages = new RestCollection<Message>("http://localhost:26624", "message", "hub");
                 SendMessage = new RelayCommand(() =>
                 {
                     messages.Add(new Message()
@@ -92,3 +94,4 @@ namespace Client
         }
     }
 }
+
