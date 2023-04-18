@@ -10,11 +10,7 @@ namespace Repository
 {
     public class MessageRepository : Repository<Message>, IRepository<Message>
     {
-        public List<Message> m;
-        public MessageRepository(IEnumerable<Message> m) : base(m)
-        {
-            this.m = m.ToList();
-        }
+        public MessageRepository(IEnumerable<Message> items) : base(items) { }
 
 
     }

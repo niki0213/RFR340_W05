@@ -17,5 +17,9 @@ namespace Repository
         {
             items.Add(item);
         }
+        public IEnumerable<T> ReadAll()
+        {
+            return items;
+        }
     }
 }

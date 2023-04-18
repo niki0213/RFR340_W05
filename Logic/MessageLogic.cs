@@ -22,5 +22,10 @@ namespace Logic
         {
             this.repo.Add(item);
         }
+
+        public IEnumerable<Message> ReadAll()
+        {
+            return repo.ReadAll();
+        }
     }
 }
