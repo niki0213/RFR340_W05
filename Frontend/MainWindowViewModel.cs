@@ -14,12 +14,21 @@ namespace Frontend
 {
     public class MainWindowViewModel : ObservableRecipient
     {
-        private string errorMessage;
 
-        public string ErrorMessage
+        private string message;
+
+        public string Message
         {
-            get { return errorMessage; }
-            set { SetProperty(ref errorMessage, value); }
+            get { return message; }
+            set { SetProperty(ref message, value); }
+        }
+
+        private string user;
+
+        public string User
+        {
+            get { return user; }
+            set { SetProperty(ref user, value); }
         }
 
 
